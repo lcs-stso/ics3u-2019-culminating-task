@@ -20,6 +20,7 @@ public class Pengu extends Actor
     {
         checkKeys();
         fall();
+        checkFall();
     }
 
     private void checkKeys()
@@ -33,7 +34,6 @@ public class Pengu extends Actor
             moveRight();
         }
     }
-
     public void checkFall()
     {
         if(onGround()) {
