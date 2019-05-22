@@ -112,7 +112,6 @@ public class SideScrollingWorld extends World
             MetalPlate plate = new MetalPlate (x,y); 
             addObject(plate,x,y); 
         }
-
         // Add group 6
         for(int i = 0;i<=3; i+=1) 
         {
@@ -123,8 +122,16 @@ public class SideScrollingWorld extends World
             MetalPlate plate = new MetalPlate (x,y); 
             addObject(plate,x,y); 
         }
+        //Add group 7 
+        for(int i = 0;i<=5; i+=1) 
+        {
+            //Location 
+            int x = 37 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 10 * TILE_SIZE + HALF_TILE_SIZE;
 
-        
+            MetalPlate plate = new MetalPlate (x,y); 
+            addObject(plate,x,y); 
+        }
         
     }
 
