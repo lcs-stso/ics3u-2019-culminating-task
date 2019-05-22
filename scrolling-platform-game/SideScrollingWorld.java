@@ -15,6 +15,7 @@ public class SideScrollingWorld extends World
      */    
     // Tile size in pixels for world elements (blocks, clouds, etc)
     private static final int TILE_SIZE = 32;
+    private static final int HALF_TILE_SIZE = TILE_SIZE/2; 
 
     // World size constants
     private static final int VISIBLE_WIDTH = 640;
@@ -54,10 +55,77 @@ public class SideScrollingWorld extends World
     {
         addLeftGround();
         addFences();
-        addMetalPlateSteps();
+        //addMetalPlateSteps();
         addClouds();
         addRightGround();
         addHero();
+
+        //Add metal plates to the world 
+        //Add metal plates in upper left corner 
+        //Add group 1 
+        for(int i = 0;i<=4; i+=1) 
+        {
+            // Location 
+            int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 12 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate (x,y); 
+            addObject(plate,x,y); 
+        }
+        //Add group 2 
+        for(int i = 0;i<=3; i+=1) 
+        {
+            //Location 
+            int x = 8*TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 8 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate (x,y); 
+            addObject(plate,x,y); 
+        }
+        //Add group 3 
+        for(int i = 0;i<=3; i+=1) 
+        {
+            //Location 
+            int x = 20*TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 8 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate (x,y); 
+            addObject(plate,x,y); 
+        }
+        // //Add group 4  
+        for(int i = 0;i<=3; i+=1) 
+        {
+            //Location 
+            int x = 14*TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 10 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate (x,y); 
+            addObject(plate,x,y); 
+        }
+        // Add group 5
+        for(int i = 0;i<=5; i+=1) 
+        {
+            //Location 
+            int x = 24 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 13 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate (x,y); 
+            addObject(plate,x,y); 
+        }
+
+        // Add group 6
+        for(int i = 0;i<=3; i+=1) 
+        {
+            //Location 
+            int x = 31 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 12 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate (x,y); 
+            addObject(plate,x,y); 
+        }
+
+        
+        
     }
 
     /**
@@ -126,7 +194,7 @@ public class SideScrollingWorld extends World
         final int COUNT_OF_METAL_PLATES = 20;
         final int PLATES_PER_GROUP = 4;
 
-        // Add groups of plates
+        //Add groups of plates
         for (int i = 0; i < COUNT_OF_METAL_PLATES / PLATES_PER_GROUP; i += 1)
         {
             // Group of four metal plates all at same y position
@@ -170,13 +238,13 @@ public class SideScrollingWorld extends World
     private void addHero()
     {
         // Initial horizontal position
-        int initialX = getWidth() - 5 * getWidth() / 6;
+        int initialX = getWidth() - 10 * getWidth() / 11;
 
         // Instantiate the hero object
         theHero = new Hero(initialX);
 
         // Add hero in bottom left corner of screen
-        addObject(theHero, initialX, getHeight() / 4 * 3);
+        addObject(theHero, initialX, getHeight() - 4 * TILE_SIZE);
     }
 
     /**

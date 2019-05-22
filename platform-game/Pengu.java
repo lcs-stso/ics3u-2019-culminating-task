@@ -11,7 +11,7 @@ public class Pengu extends Actor
     private int speed = 7;
     private int vSpeed = 0;
     private int acceleration = 2; 
-
+    private int jumpStrength =12;
     /**
      * Act - do whatever the Pengu wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -33,6 +33,14 @@ public class Pengu extends Actor
             setImage("pengu-right.png");
             moveRight();
         }
+        if (Greenfoot.isKeyDown("space")) {
+            jump();
+        }
+    }
+    public void jump()
+    {
+      vSpeed = -jumpStrength; 
+      fall(); 
     }
     public void checkFall()
     {
