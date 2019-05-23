@@ -152,6 +152,16 @@ public class SideScrollingWorld extends World
             MetalPlate plate = new MetalPlate (x,y); 
             addObject(plate,x,y); 
         }
+        //Add group 10 
+        for(int i = 0;i<=1; i+=1) 
+        {
+            //Location 
+            int x = 50 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 9 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate (x,y); 
+            addObject(plate,x,y); 
+        }
     }
 
     /**
