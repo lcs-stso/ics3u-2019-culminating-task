@@ -27,6 +27,8 @@ public class SideScrollingWorld extends World
 
     // Hero
     Hero theHero;
+    //Fox
+    Fox theFox;
 
     // Track whether game is on
     private boolean isGameOver;
@@ -68,7 +70,7 @@ public class SideScrollingWorld extends World
         addBirds();
         addRightGround();
         addHero();
-
+        //addFox();
         //Add metal plates to the world 
         //Add metal plates in upper left corner 
         //Add group 1 
@@ -291,7 +293,8 @@ public class SideScrollingWorld extends World
         // Add hero in bottom left corner of screen
         addObject(theHero, initialX, getHeight() - 4 * TILE_SIZE);
     }
-
+     
+    
     /**
      * Add blocks to create the ground to walk on at top-right of scrollable world.
      */

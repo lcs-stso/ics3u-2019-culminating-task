@@ -48,10 +48,9 @@ public class Hero extends Actor
     private static final int WALK_ANIMATION_DELAY = 8;
     private static final int COUNT_OF_WALKING_IMAGES = 2;
     private int walkingFrames;
-    
+
     //Jump sound effect 
     private GreenfootSound soundeffectMusic;
-
 
     /**
      * Constructor
