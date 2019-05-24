@@ -30,6 +30,9 @@ public class SideScrollingWorld extends World
 
     // Track whether game is on
     private boolean isGameOver;
+    
+    // Object for background music
+    private GreenfootSound backgroundMusic;
 
     /**
      * Constructor for objects of class SideScrollingWorld.
@@ -46,6 +49,12 @@ public class SideScrollingWorld extends World
 
         // Game on
         isGameOver = false;
+        
+        // Load the sound file
+        backgroundMusic = new GreenfootSound("background.mp3");
+        
+        // Play the sound file
+        backgroundMusic.playLoop();
     }
 
     /**
@@ -56,7 +65,7 @@ public class SideScrollingWorld extends World
         addLeftGround();
         addFences();
         //addMetalPlateSteps();
-        addClouds();
+        addBirds();
         addRightGround();
         addHero();
 
@@ -249,14 +258,14 @@ public class SideScrollingWorld extends World
     /**
      * Add a few clouds for the opening scene.
      */
-    private void addClouds()
+    private void addBirds()
     {
-        Cloud cloud1 = new Cloud(170, 125);
-        addObject(cloud1, 170, 125);
-        Cloud cloud2 = new Cloud(450, 175);
-        addObject(cloud2, 450, 175);
-        Cloud cloud3 = new Cloud(775, 50);
-        addObject(cloud3, 775, 50);
+        Bird bird1 = new Bird (170, 125);
+        addObject(bird1, 170, 125);
+        Bird bird2 = new Bird(450, 175);
+        addObject(bird2, 450, 175);
+        Bird bird3 = new Bird(775, 50);
+        addObject(bird3, 775, 50);
     }
 
     /**

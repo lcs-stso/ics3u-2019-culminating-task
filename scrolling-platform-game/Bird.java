@@ -6,14 +6,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author R. Gordon
  * @version May 8, 2019
  */
-public class Cloud extends FarAwayItem
+public class Bird extends FarAwayItem
 {
     /**
      * Constructor
      * 
      * Called once when object is created.
      */
-    Cloud(int scrollableWorldX, int scrollableWorldY)
+    Bird(int scrollableWorldX, int scrollableWorldY)
     {
         super(scrollableWorldX, scrollableWorldY);
     }
