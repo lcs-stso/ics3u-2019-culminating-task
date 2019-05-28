@@ -63,6 +63,10 @@ public class SideScrollingWorld extends World
 
         // Play the sound file
         //backgroundMusic.playLoop();
+        
+        // Set the initial score
+        String currentScore = "Score: 0";
+        showText(currentScore, 500, 50);
     }
 
     /**
@@ -275,7 +279,16 @@ public class SideScrollingWorld extends World
         }
         
     }
-
+    
+    //dedut score if garfield touches the fox 
+    void FoxTouched()
+    {
+        Score = Score - 5;
+        //Update the score 
+        String currentScore = "Score: " + Integer.toString(Score);
+        showText(currentScore, 500, 50); 
+    }
+   
     /**
      * Add the hero to the world.
      */
