@@ -258,7 +258,22 @@ public class SideScrollingWorld extends World
      */
     public void act()
     {
-      
+           if ((frames % 60) == 0)
+        {
+            String timeElapsed = "Time: " + Integer.toString(frames / 60);
+            showText(timeElapsed, 100, 50);
+        }
+        // Increment frame (roughly 60 frames per second)
+        frames = frames + 1;
+        
+          // After 60 seconds, end the game 
+        if (frames == 3600 )
+        {          
+            Greenfoot.stop();  
+            String GameEnd = "GameOver";
+            showText(GameEnd, 300, 200);
+        }
+        
     }
 
     /**
