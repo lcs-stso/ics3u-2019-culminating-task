@@ -40,8 +40,10 @@ public class SideScrollingWorld extends World
     private int frames = 0;
     //Track the score 
     private int Score = 0; 
-    //Track Fox Touched 
+    //Track if Fox is Touched 
     private int FoxTouched =0; 
+    
+    private int CoinTaken = 0;
     /**
      * Constructor for objects of class SideScrollingWorld.
      */
@@ -67,6 +69,9 @@ public class SideScrollingWorld extends World
         // Set the initial score
         String currentScore = "Score: 0";
         showText(currentScore, 500, 50);
+        //dedut score if garfield touches the fox 
+    
+   
     }
 
     /**
@@ -277,18 +282,17 @@ public class SideScrollingWorld extends World
             String GameEnd = "GameOver";
             showText(GameEnd, 300, 200);
         }
-        
+       
+        if ((frames % 240) == 0)
+        {
+            Coin myCoin = new Coin();
+            int x = Greenfoot.getRandomNumber(800);
+            int y = Greenfoot.getRandomNumber(100);
+            addObject(myCoin, x, y);
+        }  
     }
     
-    //dedut score if garfield touches the fox 
-    void FoxTouched()
-    {
-        Score = Score - 5;
-        //Update the score 
-        String currentScore = "Score: " + Integer.toString(Score);
-        showText(currentScore, 500, 50); 
-    }
-   
+    
     /**
      * Add the hero to the world.
      */
@@ -372,6 +376,23 @@ public class SideScrollingWorld extends World
     public void setGameOver()
     {
         isGameOver = true;
+    }
+    
+    public void FoxTouched()
+    {
+        Score = Score - 5;
+        //Update the score 
+        String currentScore = "Score: " + Integer.toString(Score);
+        showText(currentScore, 500, 50); 
+    }
+    
+    //Add to coin taken  
+    public void CoinTaken()
+    {
+        Score = Score + 100;
+        //Update the score 
+        String currentScore = "Score: " + Integer.toString(Score);
+        showText(currentScore, 500, 50); 
     }
 }
 

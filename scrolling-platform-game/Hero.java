@@ -104,7 +104,17 @@ public class Hero extends Actor
         {
             checkGameOver();
         }
-        
+        //Get an object reference to our world
+        SideScrollingWorld world = (SideScrollingWorld) getWorld();
+        if ( isTouching(Fox.class) ) 
+        {
+           world.FoxTouched();  
+        }    
+        if ( isTouching(Coin.class) ) 
+        {
+          world.CoinTaken();
+          removeTouching(Coin.class); 
+        }    
     }
 
     /**
