@@ -32,10 +32,16 @@ public class SideScrollingWorld extends World
 
     // Track whether game is on
     private boolean isGameOver;
-    
+
     // Object for background music
     private GreenfootSound backgroundMusic;
 
+    //Track time going up 
+    private int frames = 0;
+    //Track the score 
+    private int Score = 0; 
+    //Track Fox Touched 
+    private int FoxTouched =0; 
     /**
      * Constructor for objects of class SideScrollingWorld.
      */
@@ -51,10 +57,10 @@ public class SideScrollingWorld extends World
 
         // Game on
         isGameOver = false;
-        
+
         // Load the sound file
         backgroundMusic = new GreenfootSound("background.mp3");
-        
+
         // Play the sound file
         //backgroundMusic.playLoop();
     }
@@ -66,11 +72,10 @@ public class SideScrollingWorld extends World
     {
         addLeftGround();
         addFences();
-        //addMetalPlateSteps();
         addBirds();
         addRightGround();
         addHero();
-        //addFox();
+        addFox();
         //Add metal plates to the world 
         //Add metal plates in upper left corner 
         //Add group 1 
@@ -174,7 +179,8 @@ public class SideScrollingWorld extends World
             addObject(plate,x,y); 
         }
     }
-
+   
+  
     /**
      * Add blocks to create the ground to walk on at bottom-left of scrollable world.
      */
@@ -233,31 +239,6 @@ public class SideScrollingWorld extends World
     }
 
     /**
-     * Add steps made out of metal plates leading to end of world.
-     */
-    private void addMetalPlateSteps()
-    {
-        // How many plates total?
-        final int COUNT_OF_METAL_PLATES = 20;
-        final int PLATES_PER_GROUP = 4;
-
-        //Add groups of plates
-        for (int i = 0; i < COUNT_OF_METAL_PLATES / PLATES_PER_GROUP; i += 1)
-        {
-            // Group of four metal plates all at same y position
-            int y = VISIBLE_HEIGHT - TILE_SIZE / 2 * 3 - i * TILE_SIZE;
-
-            // Add the individual plates in a given group
-            for (int j = 0; j < PLATES_PER_GROUP; j += 1)
-            {
-                int x = VISIBLE_WIDTH + TILE_SIZE * 2 + TILE_SIZE * (i + j) + TILE_SIZE * 5 * i;
-                MetalPlate plate = new MetalPlate(x, y);
-                addObject(plate, x, y);
-            }
-        }
-    }
-
-    /**
      * Add a few clouds for the opening scene.
      */
     private void addBirds()
@@ -277,6 +258,7 @@ public class SideScrollingWorld extends World
      */
     public void act()
     {
+      
     }
 
     /**
@@ -293,8 +275,22 @@ public class SideScrollingWorld extends World
         // Add hero in bottom left corner of screen
         addObject(theHero, initialX, getHeight() - 4 * TILE_SIZE);
     }
-     
-    
+
+    /**
+     * Add the fox to the world.
+     */
+    private void addFox()
+    {
+        // Initial horizontal position
+        int initialX = getWidth() - 10 * getWidth() / 11;
+
+        // Instantiate the fox object
+        theFox = new Fox(initialX);
+
+        // Add hero in bottom left corner of screen
+        addObject(theFox, initialX, getHeight() - 1 * TILE_SIZE);
+    }
+
     /**
      * Add blocks to create the ground to walk on at top-right of scrollable world.
      */

@@ -104,6 +104,7 @@ public class Hero extends Actor
         {
             checkGameOver();
         }
+        
     }
 
     /**
