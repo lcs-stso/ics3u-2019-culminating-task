@@ -108,12 +108,13 @@ public class Hero extends Actor
         SideScrollingWorld world = (SideScrollingWorld) getWorld();
         if ( isTouching(Fox.class) ) 
         {
-           world.FoxTouched();  
+            world.FoxTouched();  
+            Greenfoot.playSound("Meow.wav");
         }    
         if ( isTouching(Coin.class) ) 
         {
-          world.CoinTaken();
-          removeTouching(Coin.class); 
+            world.CoinTaken();
+            removeTouching(Coin.class); 
         }    
     }
 

@@ -42,7 +42,7 @@ public class SideScrollingWorld extends World
     private int Score = 0; 
     //Track if Fox is Touched 
     private int FoxTouched =0; 
-    
+
     private int CoinTaken = 0;
     /**
      * Constructor for objects of class SideScrollingWorld.
@@ -65,22 +65,20 @@ public class SideScrollingWorld extends World
 
         // Play the sound file
         //backgroundMusic.playLoop();
-        
+
         // Set the initial score
         String currentScore = "Score: 0";
         showText(currentScore, 500, 50);
         //dedut score if garfield touches the fox 
-    
-   
-    }
 
+    }
     /**
      * Set up the entire world.
      */
     private void setup()
     {
         addLeftGround();
-        addFences();
+        addTrees();
         addBirds();
         addRightGround();
         addHero();
@@ -188,8 +186,7 @@ public class SideScrollingWorld extends World
             addObject(plate,x,y); 
         }
     }
-   
-  
+
     /**
      * Add blocks to create the ground to walk on at bottom-left of scrollable world.
      */
@@ -217,34 +214,34 @@ public class SideScrollingWorld extends World
     /**
      * Add some fences at left and right side.
      */
-    private void addFences()
+    private void addTrees()
     {
         // Three fences on left side of world
         int x = TILE_SIZE / 2 + TILE_SIZE * 5;
         int y = VISIBLE_HEIGHT - TILE_SIZE / 2 - TILE_SIZE;
-        Fence fence1 = new Fence(x, y);
-        addObject(fence1, x, y);
+        Tree tree1 = new Tree(x, y);
+        addObject(tree1, x, y);
 
         x = TILE_SIZE / 2 + TILE_SIZE * 6;
         y = VISIBLE_HEIGHT - TILE_SIZE / 2 - TILE_SIZE;        
-        Fence fence2 = new Fence(x, y);
-        addObject(fence2, x, y);
+        Tree tree2 = new Tree(x, y);
+        addObject(tree2, x, y);
 
         x = TILE_SIZE / 2 + TILE_SIZE * 7;
         y = VISIBLE_HEIGHT - TILE_SIZE / 2 - TILE_SIZE;
-        Fence fence3 = new Fence(x, y);
-        addObject(fence3, x, y);
+        Tree tree3 = new Tree(x, y);
+        addObject(tree3, x, y);
 
         // Two fences on right side of world
         x = SCROLLABLE_WIDTH - TILE_SIZE / 2 - TILE_SIZE * 3;
         y = VISIBLE_HEIGHT / 2;
-        Fence fence4 = new Fence(x, y);
-        addObject(fence4, x, y);
+        Tree tree4 = new Tree(x, y);
+        addObject(tree4, x, y);
 
         x = SCROLLABLE_WIDTH - TILE_SIZE / 2 - TILE_SIZE * 4;
         y = VISIBLE_HEIGHT / 2;
-        Fence fence5 = new Fence(x, y);
-        addObject(fence5, x, y);
+        Tree tree5 = new Tree(x, y);
+        addObject(tree5, x, y);
     }
 
     /**
@@ -267,22 +264,22 @@ public class SideScrollingWorld extends World
      */
     public void act()
     {
-           if ((frames % 60) == 0)
+        if ((frames % 60) == 0)
         {
             String timeElapsed = "Time: " + Integer.toString(frames / 60);
             showText(timeElapsed, 100, 50);
         }
         // Increment frame (roughly 60 frames per second)
         frames = frames + 1;
-        
-          // After 60 seconds, end the game 
+
+        // After 60 seconds, end the game 
         if (frames == 3600 )
         {          
             Greenfoot.stop();  
             String GameEnd = "GameOver";
             showText(GameEnd, 300, 200);
         }
-       
+
         if ((frames % 240) == 0)
         {
             Coin myCoin = new Coin();
@@ -291,8 +288,7 @@ public class SideScrollingWorld extends World
             addObject(myCoin, x, y);
         }  
     }
-    
-    
+
     /**
      * Add the hero to the world.
      */
@@ -377,7 +373,7 @@ public class SideScrollingWorld extends World
     {
         isGameOver = true;
     }
-    
+
     public void FoxTouched()
     {
         Score = Score - 5;
@@ -385,7 +381,7 @@ public class SideScrollingWorld extends World
         String currentScore = "Score: " + Integer.toString(Score);
         showText(currentScore, 500, 50); 
     }
-    
+
     //Add to coin taken  
     public void CoinTaken()
     {
