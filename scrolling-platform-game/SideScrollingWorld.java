@@ -256,7 +256,17 @@ public class SideScrollingWorld extends World
         Bird bird3 = new Bird(775, 50);
         addObject(bird3, 775, 50);
     }
-
+    private void addCoin()
+    {
+        if ((frames % 240) == 0)
+        {
+            int x = Greenfoot.getRandomNumber(500) - 250;
+            int y = Greenfoot.getRandomNumber(100);
+            System.out.println("Adding a coin at x and y of " + x + " and " + y);
+            Coin myCoin = new Coin(theHero.currentScrollableWorldPosition() + x, y);
+            addObject(myCoin, theHero.getX() + x, y);
+        } 
+    }
     /**
      * Act
      * 
@@ -272,6 +282,9 @@ public class SideScrollingWorld extends World
         // Increment frame (roughly 60 frames per second)
         frames = frames + 1;
 
+        // See if it's time to add a coin
+        addCoin();
+        
         // After 60 seconds, end the game 
         if (frames == 3600 )
         {          
@@ -280,13 +293,6 @@ public class SideScrollingWorld extends World
             showText(GameEnd, 300, 200);
         }
 
-        if ((frames % 240) == 0)
-        {
-            Coin myCoin = new Coin();
-            int x = Greenfoot.getRandomNumber(800);
-            int y = Greenfoot.getRandomNumber(100);
-            addObject(myCoin, x, y);
-        }  
     }
 
     /**

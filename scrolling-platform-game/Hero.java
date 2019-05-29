@@ -106,17 +106,23 @@ public class Hero extends Actor
         }
         //Get an object reference to our world
         SideScrollingWorld world = (SideScrollingWorld) getWorld();
-        if ( isTouching(Fox.class) ) 
+        if (!isGameOver) 
         {
-            world.FoxTouched();  
-            Greenfoot.playSound("oh.wav");
-            
+            if(isTouching(Fox.class))
+            {
+                world.FoxTouched();  
+                Greenfoot.playSound("oh.wav");
+            }
+
         }    
-        if ( isTouching(Coin.class) ) 
+        if (!isGameOver)
         {
-            world.CoinTaken();
-            removeTouching(Coin.class); 
-        }    
+            if(isTouching(Coin.class)) 
+            {
+                world.CoinTaken();
+                removeTouching(Coin.class); 
+            }    
+        }
     }
 
     /**
@@ -546,5 +552,13 @@ public class Hero extends Actor
             // Tell the user game is over
             world.showText("GAME OVER", world.getWidth() / 2, world.getHeight() / 2);
         }
+    }
+
+    /**
+     * Where is the hero in the scrollable world?
+     */
+    public int currentScrollableWorldPosition()
+    {
+        return currentScrollableWorldXPosition;
     }
 }

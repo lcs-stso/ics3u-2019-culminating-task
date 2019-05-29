@@ -37,7 +37,7 @@ public class Fox extends Decoration
     Fox(int scrollableWorldX, int scrollableWorldY)
     {
         super(scrollableWorldX, scrollableWorldY);
-        
+
         // Set where fox begins horizontally
         currentScrollableWorldXPosition = scrollableWorldX;
 
@@ -91,7 +91,6 @@ public class Fox extends Decoration
     public void checkForDirectionChange()
     {
         // Set image
-        System.out.println("My direction is" + horizontalDirection);
         if ((horizontalDirection == FACING_RIGHT) && frames % 480 == 0)
         {
             moveLeft();
