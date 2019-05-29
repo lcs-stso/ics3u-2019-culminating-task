@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Fox extends Actor
+public class Fox extends Decoration
 {
     // Track current theoretical position in wider "scrollable" world
     private int currentScrollableWorldXPosition;
@@ -34,10 +34,12 @@ public class Fox extends Actor
      * 
      * This runs once when the fox object is created.
      */
-    Fox(int startingX)
+    Fox(int scrollableWorldX, int scrollableWorldY)
     {
+        super(scrollableWorldX, scrollableWorldY);
+        
         // Set where fox begins horizontally
-        currentScrollableWorldXPosition = startingX;
+        currentScrollableWorldXPosition = scrollableWorldX;
 
         // Facing right to start
         horizontalDirection = FACING_RIGHT;
@@ -90,7 +92,7 @@ public class Fox extends Actor
     {
         // Set image
         System.out.println("My direction is" + horizontalDirection);
-        if ((horizontalDirection == FACING_RIGHT) && (frames % 240 == 0))
+        if ((horizontalDirection == FACING_RIGHT) && frames % 480 == 0)
         {
             moveLeft();
             frames = 0;
@@ -149,7 +151,7 @@ public class Fox extends Actor
         setLocation(getX() - deltaX, getY());
 
         // Set image 
-        if (onGround()  )
+        if (onGround())
         {
             animateWalk(horizontalDirection);
         }

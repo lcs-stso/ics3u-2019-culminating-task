@@ -109,7 +109,8 @@ public class Hero extends Actor
         if ( isTouching(Fox.class) ) 
         {
             world.FoxTouched();  
-            Greenfoot.playSound("Meow.wav");
+            Greenfoot.playSound("oh.wav");
+            
         }    
         if ( isTouching(Coin.class) ) 
         {

@@ -313,7 +313,7 @@ public class SideScrollingWorld extends World
         int initialX = getWidth() - 10 * getWidth() / 11;
 
         // Instantiate the fox object
-        theFox = new Fox(initialX);
+        theFox = new Fox(initialX, getHeight() - 50);
 
         // Add hero in bottom left corner of screen
         addObject(theFox, initialX, getHeight() - 1 * TILE_SIZE);
