@@ -120,6 +120,7 @@ public class Hero extends Actor
             if(isTouching(Coin.class)) 
             {
                 world.CoinTaken();
+                Greenfoot.playSound("coin.wav");
                 removeTouching(Coin.class); 
             }    
         }

@@ -64,7 +64,7 @@ public class SideScrollingWorld extends World
         backgroundMusic = new GreenfootSound("background.mp3");
 
         // Play the sound file
-        //backgroundMusic.playLoop();
+        backgroundMusic.playLoop();
 
         // Set the initial score
         String currentScore = "Score: 0";
