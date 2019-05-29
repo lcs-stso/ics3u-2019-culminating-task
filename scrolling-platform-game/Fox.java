@@ -27,8 +27,6 @@ public class Fox extends Actor
     private int deltaX = 1;
     // Vertical speed (change in vertical position, or delta Y)
     private int deltaY = 4;
-    private int jeda = 10; 
-    private int num = 0; 
     //Track the frames
     private int frames =0; 
     /**
@@ -73,7 +71,7 @@ public class Fox extends Actor
 
         // Should we change direction?
         checkForDirectionChange();
-        
+
         // Move forward
         if (horizontalDirection == FACING_RIGHT)
         {
@@ -97,7 +95,7 @@ public class Fox extends Actor
             moveLeft();
             frames = 0;
         }
-        else if ((horizontalDirection == FACING_LEFT) && (frames % 240 == 0))
+        else if ((horizontalDirection == FACING_LEFT) && (onGround() == false))
         {
             moveRight();
             frames = 0;
@@ -107,12 +105,12 @@ public class Fox extends Actor
     public boolean onGround()
     {
         // Get an reference to a solid object (subclass of Platform) below the fox, if one exists
-        // Get an reference to a solid object (subclass of Platform) below the hero, if one exists
+        // Get an reference to a solid object (subclass of Platform) below the fox, if one exists
         Actor directlyUnder = getOneObjectAtOffset(0, getImage().getHeight() / 2, Ground.class);
         Actor frontUnder = getOneObjectAtOffset(getImage().getWidth() / 3, getImage().getHeight() / 2, Ground.class);
         Actor rearUnder = getOneObjectAtOffset(0 - getImage().getWidth() / 3, getImage().getHeight() / 2, Ground.class);
 
-        // If there is no solid object below (or slightly in front of or behind) the hero...
+        // If there is no solid object below (or slightly in front of or behind) the fox...
         if (directlyUnder == null && frontUnder == null && rearUnder == null)
         {
             return false;   // Not on a solid object
@@ -130,7 +128,7 @@ public class Fox extends Actor
     {
         // Track direction
         horizontalDirection = FACING_RIGHT;
-        
+
         // Move right
         setLocation(getX() + deltaX, getY());
 
@@ -149,9 +147,9 @@ public class Fox extends Actor
 
         // Move left
         setLocation(getX() - deltaX, getY());
-        
+
         // Set image 
-        if (onGround())
+        if (onGround()  )
         {
             animateWalk(horizontalDirection);
         }
